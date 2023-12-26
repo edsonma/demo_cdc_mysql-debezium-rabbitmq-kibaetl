@@ -1,9 +1,13 @@
 #frozen_string_literal: true
+
 require 'json'
 
-class ParseMessageService
-  def call!(data)
-    data = JSON.parse(data)
+class ParseMessageTransform
+  def process(row)
+    puts '[transform] Transforming data...'
+    puts "\t[transform] Transforming data to hash and get interest data" 
+
+    data = JSON.parse(row)
 
     # Merge into a single dictionary
     merged_data = {
@@ -14,7 +18,7 @@ class ParseMessageService
 
     puts "\t[transform] Parsed data: #{merged_data}"
 
-    merged_data
+    row = merged_data.dig(:after_data, 'job_uuid')
   end
 end
 
