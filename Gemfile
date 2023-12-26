@@ -6,6 +6,7 @@ gem 'rake'
 gem 'bunny'
 gem 'kiba'
 gem 'pry'
+gem 'faraday'
 
 group :development, :test do
   # rspec testing
