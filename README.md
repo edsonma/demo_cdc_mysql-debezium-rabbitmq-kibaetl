@@ -8,7 +8,7 @@ Here, you'll discover setup files, docker-compose configurations, and additional
 
 ## Getting Started
 
-<img width="706" alt="Screenshot 2023-12-15 at 00 37 48" src="https://github.com/edsonma/demo_cdc_mysql-debezium-rabbitmq-kibaetl/assets/711579/f80d246d-63e8-42a1-83a5-39f46b7e85ba">
+<img width="786" alt="Screenshot 2023-12-26 at 11 24 10" src="https://github.com/edsonma/demo_cdc_mysql-debezium-rabbitmq-kibaetl/assets/711579/41068a13-5bfe-43f4-a536-8b89c7fe760c">
 
 
 ### Technologies
