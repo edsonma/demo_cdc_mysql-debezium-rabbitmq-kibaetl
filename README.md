@@ -1,4 +1,4 @@
-# Demo - mysql / Debezium / RabbitMQ / KibaETL
+# Demo - Mysql / Debezium / RabbitMQ / KibaETL
 
 This project was created with a focus on showcasing the utilization of the Debezium tool to implement a Change Data Capture (CDC) process. It effectively tracks data changes and synchronizes information with various destinations such as databases, indexers, private data stores, disks, etc.
 
