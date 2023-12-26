@@ -14,6 +14,9 @@ class KibaTransform
 
     puts "\t[transform] Transforming data to hash and get interest data" 
     ParseMessageService.new.call!(row)
+
+    puts "\t[transform] Retrieve Job Information by UUID"
+    RetrieveJobDataService.new.call!(row)
   end
 end
 
