@@ -1,0 +1,60 @@
+# AllCops
+AllCops:
+  Exclude:
+    - 'vendor/**/*' # Exclude vendor directory
+
+# Style/Documentation
+Style/Documentation:
+  Enabled: true
+  Exclude:
+    - 'db/**/*' # Exclude database files from documentation checks
+
+# Style/Encoding
+Style/Encoding:
+  Enabled: true
+  EnforcedStyle: utf-8
+
+# Style/EmptyMethod
+Style/EmptyMethod:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*' # Exclude empty methods in spec files
+
+# Style/FrozenStringLiteralComment
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+# Style/RedundantParentheses
+Style/RedundantParentheses:
+  Enabled: true
+
+# Style/StringLiterals
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+# Metrics/BlockLength
+Metrics/BlockLength:
+  Enabled: true
+  Max: 20 # Set maximum allowed block length to 20 lines
+
+# Metrics/MethodLength
+Metrics/MethodLength:
+  Enabled: true
+  Max: 10 # Set maximum allowed method length to 10 lines
+
+# Naming/FileName
+Naming/FileName:
+  Enabled: true
+
+# Naming/VariableName
+Naming/VariableName:
+  Enabled: true
+
+# Lint/UnusedMethodArgument
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+# Lint/UselessAssignment
+Lint/UselessAssignment:
+  Enabled: true

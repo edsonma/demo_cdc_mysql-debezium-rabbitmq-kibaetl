@@ -1,0 +1,38 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+
+# Ignore Docker-related files.
+/docker-compose.override.yml
+/docker/*.pid
+/docker/*.log
+/docker/*.env
+/docker/debezium/data/offsets.dat
+
+# Ignore RSpec generated files.
+/spec/tmp
+/spec/fixtures
+
+# Ignore Gemfile.lock next to the application Gemfile.
+/Gemfile.lock
+
+# Ignore system-specific files.
+/.idea
+/.vscode
+.DS_Store
+.history
+
+# Ignore coverage results.
+/coverage/
+
+# Ignore the bin directory.
+/bin/
+
+# Ignore environment files
+.env
+.rbenv-gemsets
+.rspec
+.ruby-version

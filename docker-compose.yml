@@ -1,0 +1,65 @@
+version: '3.8'
+
+volumes:
+  mysqlData:
+  rabbitmqData:
+  rabbitmqLogData:
+services:
+  rabbitmq:
+    image: rabbitmq:3.11.9-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=lalala
+      - RABBITMQ_DEFAULT_VHOST=vhost
+    volumes:
+      - rabbitmqData:/var/lib/rabbitmq/
+      - rabbitmqLogData:/var/log/rabbitmq
+      - ./docker/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
+      - ./docker/rabbitmq/plugins:/usr/lib/rabbitmq/plugins
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    networks:
+      - cdc_network
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 30s
+      retries: 3     
+  mysql:
+    image: mysql:latest
+    restart: always
+    container_name: mysql
+    ports:
+      - 3306:3306
+    command: --server-id=85744
+    environment:
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_ROOT_PASSWORD=mysql
+      - BINLOG_FORMAT=ROW
+    volumes:
+      - mysqlData:/var/lib/mysql
+      - ./docker/mysql/init-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: mysqladmin ping -h localhost -P 3306 -u root --password=mysql
+      interval: 2s
+      timeout: 20s
+      retries: 10
+    networks:
+      - cdc_network
+  debezium-server:
+    image: quay.io/debezium/server:latest
+    ports:
+      - 8080:8080
+    volumes:
+      - ./docker/debezium/conf:/debezium/conf
+      - ./docker/debezium/data:/debezium/data
+    environment:
+      - database.ssl.mode=disable
+      - DEBEZIUM_TRUSTED_CERTIFICATES=trustServerCertificate=true
+    networks:
+      - cdc_network
+networks:
+  cdc_network:
+    driver: bridge

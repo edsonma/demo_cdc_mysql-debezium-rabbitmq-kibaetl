@@ -1,0 +1,80 @@
+# Reek configuration file
+
+# Specify the directories or files to be analyzed by Reek
+sources:
+  - app/
+  - lib/
+
+# Specify the code smell detectors to be used
+detectors:
+  - UncommunicativeMethodName
+  - UncommunicativeModuleName
+  - UncommunicativeVariableName
+  - FeatureEnvy
+  - LongParameterList
+  - DuplicateMethodCall
+  - TooManyStatements
+  - TooManyMethods
+  - TooManyInstanceVariables
+  - TooManyConstants
+  - TooManyPublicMethods
+  - TooManyNestedBlocks
+  - TooManyParameters
+  - TooManyDependencies
+
+# Specify the configuration for each detector (if needed)
+UncommunicativeMethodName:
+  enabled: true
+  min_name_length: 3
+
+UncommunicativeModuleName:
+  enabled: true
+  min_name_length: 3
+
+UncommunicativeVariableName:
+  enabled: true
+  min_name_length: 3
+
+FeatureEnvy:
+  enabled: true
+  max_calls: 5
+
+LongParameterList:
+  enabled: true
+  max_parameters: 5
+
+DuplicateMethodCall:
+  enabled: true
+  max_calls: 3
+
+TooManyStatements:
+  enabled: true
+  max_statements: 20
+
+TooManyMethods:
+  enabled: true
+  max_methods: 10
+
+TooManyInstanceVariables:
+  enabled: true
+  max_instance_variables: 5
+
+TooManyConstants:
+  enabled: true
+  max_constants: 5
+
+TooManyPublicMethods:
+  enabled: true
+  max_public_methods: 10
+
+TooManyNestedBlocks:
+  enabled: true
+  max_nested_blocks: 3
+
+TooManyParameters:
+  enabled: true
+  max_parameters: 5
+
+TooManyDependencies:
+  enabled: true
+  max_dependencies: 10
