@@ -14,7 +14,7 @@ class ParseMessageService
 
     puts "\t[transform] Parsed data: #{merged_data}"
 
-    merged_data
+    merged_data['after_data']['job_uuid']
   end
 end
 
