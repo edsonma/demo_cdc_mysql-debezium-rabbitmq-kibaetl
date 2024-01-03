@@ -5,7 +5,7 @@ volumes:
   rabbitmqData:
   rabbitmqLogData:
 services:
-rabbitmq:
+  rabbitmq:
     build:
       context: .
       dockerfile: ./docker/rabbitmq/Dockerfile
@@ -48,7 +48,7 @@ rabbitmq:
       retries: 10
     networks:
       - cdc_network
-  debezium-server:
+  debezium:
     image: quay.io/debezium/server:latest
     ports:
       - 8080:8080
