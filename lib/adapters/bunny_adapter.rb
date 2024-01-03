@@ -17,4 +17,8 @@ class BunnyAdapter
   def disconnect
     @connection.close if @connection&.open?
   end
+
+  def channel_close
+    @channel.close
+  end
 end

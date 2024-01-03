@@ -5,8 +5,10 @@ ruby '~> 3.2.2'
 gem 'rake'
 gem 'bunny'
 gem 'kiba'
+gem 'kiba-common'
 gem 'pry'
 gem 'faraday'
+gem 'concurrent-ruby'
 
 group :development, :test do
   # rspec testing
@@ -21,4 +23,6 @@ group :development, :test do
   gem 'rubocop-performance'
   # other code quality scanner
   gem 'reek'
+
+  gem 'byebug'
 end

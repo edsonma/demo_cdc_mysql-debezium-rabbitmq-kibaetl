@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 require 'kiba'
-require 'pry'
 
-class KibaSource
+class RabbitmqSource
   def initialize(adapter, queue_name)
     @adapter = adapter
     @queue_name = queue_name

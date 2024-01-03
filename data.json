@@ -1,21 +1,4 @@
 {
-  "before_data": {
-    "company_id": 1,
-    "job_uuid": "c1486c5a-a012-11ee-8c90-0242ac120002",
-    "status_uuid": "518f93a2-a017-11ee-8c90-0242ac120002",
-    "question": "malfunctioning",
-    "answer": "0",
-    "synced_at": "2023-10-01T07:00:00Z",
-    "id": 1
-  },
-  "after_data": {
-    "company_id": 1,
-    "job_uuid": "c1486c5a-a012-11ee-8c90-0242ac120002",
-    "status_uuid": "518f93a2-a017-11ee-8c90-0242ac120002",
-    "question": "malfunctioning",
-    "answer": "1",
-    "synced_at": "2023-10-01T07:00:00Z",
-    "id": 1
-  },
-  "source_op": "u"
+  "job_uuid": "a5208dc0-27fc-11ee-86ba-093cc6f31075",
+  "operation": "u"
 }

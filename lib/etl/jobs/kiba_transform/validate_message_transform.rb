@@ -1,35 +1,25 @@
 # frozen_string_literal: true
 
-require 'json'
-
-class ValidationError < StandardError; end
+require 'kiba'
 
 class ValidateMessageTransform
   def process(data)
-    puts '[transform] Transforming data...'
-    puts "\t[transform] Validating data..."
+    puts '\t[transform] Validating interested data...'
 
-    raise ValidationError, "no data error." if data.nil?
+    raise(ValidationError, "Ignores operation that is not update.") unless update_operation?(data)
 
-    json_string = data.is_a?(String) ? data : data.to_json
-
-    json = {}
-
-    begin
-      json = JSON.parse(json_string)
-    rescue JSON::ParserError
-      raise ValidationError, "Parsing error."
-    end
-
-    validate_before_after_values(json)
+    raise(ValidationError, "Ignores if is not answer field changes.") unless miss_use_changes?(data)
 
     data
   end
 
   private
 
-  # Need to validate before and after values
-  def validate_before_after_values(json)
-    raise(ValidationError, "Invalid value for before - #{json.dig('before', 'answer')}") if json.dig('before', 'answer') == 0 
+  def update_operation?(data)
+    data.dig(:source_op) == 'u'
+  end
+
+  def miss_use_changes?(data)
+    (data.dig(:before_data, 'answer') == '0') && (data.dig(:after_data, 'answer') == '1')
   end
 end

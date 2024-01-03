@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 require 'json'
 
-# WIP - This class is not being used yet
-class KibaDestination
+class FileDestination
   STDIN_FILE = 'stdin_file'
   ORM_MODEL = 'orm_model'
 
@@ -47,4 +46,3 @@ class KibaDestination
     # Bike.create!(data)
   end
 end
-
