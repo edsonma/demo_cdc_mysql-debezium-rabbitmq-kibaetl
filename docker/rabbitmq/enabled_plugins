@@ -1,1 +1,1 @@
-[rabbitmq_shovel_management, rabbitmq_shovel ].
+[rabbitmq_shovel_management, rabbitmq_shovel, rabbitmq_management, rabbitmq_mqtt, rabbitmq_delayed_message_exchange].
